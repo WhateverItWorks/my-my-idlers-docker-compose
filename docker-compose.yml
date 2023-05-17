@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+    cp6:
+        command: 'exec php artisan migrate:fresh --seed --force'
+        image: 'ghcr.io/cp6/my-idlers:latest'
+        container_name: my-idlers
+        hostname: my-idlers
+        environment:
+            - DB_PASSWORD=changethis
+            - DB_USERNAME=cp6
+            - DB_DATABASE=cp6
+            - DB_HOST=cp6
+            - APP_URL=changethis
+        ports:
+            - '8015:8000'
+            - '9015:9000'
